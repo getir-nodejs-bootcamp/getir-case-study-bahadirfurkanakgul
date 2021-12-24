@@ -1,0 +1,20 @@
+{
+  "name": "getir-case-study-bahadirfurkanakgul",
+  "version": "1.0.0",
+  "description": "We’d like you to create a RESTful API with a single endpoint that fetches the data in the provided MongoDB collection and return the results in the requested format. Requirements - The code should be written in Node.js using express framework - The endpoint should just handle HTTP POST requests. - The application should be deployed on AWS or Heroku. You don’t need to use any API Gateway, Load Balancers or any other layer than the developed application. - The up to date repo should be publicly available in Github, Bitbucket or equivalent.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akglbahadr/getir-case-study-bahadirfurkanakgul.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akglbahadr/getir-case-study-bahadirfurkanakgul/issues"
+  },
+  "homepage": "https://github.com/akglbahadr/getir-case-study-bahadirfurkanakgul#readme"
+}
