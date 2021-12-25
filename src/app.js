@@ -5,19 +5,16 @@ const helmet = require('helmet');
 const cors = require('cors');
 const app = express();
 const returnError = require('./middlewares/errorHandler');
-const logger = require('./utils/logger')
 const routes = require('./routes/recordRoute');
 const config = require('./config');
 const morgan = require('morgan'); // import morgan
 const rfs = require("rotating-file-stream");
-
 
 config();
 loaders();
 
 // set security HTTP headers
 app.use(helmet());
-
 
 // enable morgan logger
 if(process.env.NODE_ENV === "production")
@@ -55,8 +52,6 @@ app.use(returnError);
 process.on('unhandledRejection', error => {
     throw error
 })
-
-logger.info("bu bir infodur")
 
 app.listen(process.env.APP_PORT, () => {
     console.log(`Application is running on ${process.env.APP_PORT}`);
