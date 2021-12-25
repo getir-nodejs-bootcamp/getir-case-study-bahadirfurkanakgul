@@ -8,7 +8,7 @@ db.once("open", () => {
 
 const connectDB = async () => {
   const { DB_URI_STRING } = process.env;
-  await Mongoose.connect(`${ DB_URI_STRING }`, {
+  await Mongoose.connect(DB_URI_STRING, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
