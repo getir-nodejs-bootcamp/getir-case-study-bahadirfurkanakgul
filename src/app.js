@@ -4,40 +4,36 @@ const loaders = require('./loaders')
 const helmet = require('helmet');
 const cors = require('cors');
 const app = express();
-const { returnError, isOperationalError} = require('./middlewares/errorHandler');
+const returnError = require('./middlewares/errorHandler');
 const logger = require('./utils/logger')
 const routes = require('./routes/recordRoute');
 const config = require('./config');
-const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('./swagger.json');
+const morgan = require('morgan'); // import morgan
+const rfs = require("rotating-file-stream");
 
-/* let server;
-mongoose
-    .connect(DB_URI_STRING)
-    .then(() => {
-    console.log('Connected to MongoDB');
-    server = app.listen(APP_PORT, () => {
-        console.log(`Listening to port ${APP_PORT}`);
-    });
-    })
-    .catch((err) => {
-        logger.error(err)
-    });
 
-process.on('SIGTERM', () => {
-    console.log('SIGTERM received');
-    if (server) {
-        server.close();
-    }
-}); */
 config();
 loaders();
 
-//Swagger
-app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-
 // set security HTTP headers
 app.use(helmet());
+
+
+// enable morgan logger
+if(process.env.NODE_ENV === "production")
+    app.use(morgan(process.env.LOG_FORMAT || "dev"))
+else{
+    // create a log stream
+    const rfsStream = rfs.createStream(process.env.LOG_FILE || 'log.txt', {
+        size: process.env.LOG_SIZE || '10M',
+        interval: process.env.LOG_INTERVAL || '1d',
+        compress: 'gzip' // compress rotated files
+     });
+
+    app.use(morgan(process.env.LOG_FORMAT || "dev", {
+        stream: process.env.LOG_FILE ? rfsStream : process.stdout 
+    }));
+}
 
 // enable cors
 app.use(cors());
@@ -52,18 +48,8 @@ app.use(express.urlencoded({ extended: true }));
 // api routes
 app.use('/', routes);
 
-
 // handle error
 app.use(returnError);
-
-//When unexpected errors happen, send a notification and restart the app to avoid unexpected behavior.
-process.on('uncaughtException', error => {
-    logger.error(error)
-
-    if (!isOperationalError(error)) {
-        process.exit(1)
-    }
-})
 
 // if the Promise is rejected this will catch it
 process.on('unhandledRejection', error => {
