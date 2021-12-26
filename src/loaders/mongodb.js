@@ -3,7 +3,7 @@ const Mongoose = require("mongoose");
 const db = Mongoose.connection;
 
 db.once("open", () => {
-  console.log("MongoDB'ye baglanti basarilidir..");
+  console.log("Mongodb connection is successful!");
 });
 
 const connectDB = async () => {
