@@ -3,7 +3,7 @@
 Creating a RESTful API with a single endpoint that fetches the data in the provided MongoDB collection and return the results in the requested format.
 
 ## Heroku - Deployment
-The project is on live.
+The project is live.
 
 https://bahadirfurkanakgul-getir-case.herokuapp.com/
 
@@ -47,7 +47,7 @@ Sample request: {
   "minCount": 2700, 
   "maxCount": 3000
  } 
- ``` 
+``` 
 Response Payload 
 ```
 {
@@ -68,4 +68,24 @@ Response Payload
         }
     ]
 }
+```
+
+## Dependencies
+```
+    "config": "^3.3.6",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "helmet": "^4.6.0",
+    "joi": "^17.4.2",
+    "mongoose": "^6.0.12",
+    "morgan": "^1.10.0",
+    "rotating-file-stream": "^3.0.2",
+    "swagger-ui-express": "^4.3.0"
+```
+## DevDependencies
+```
+    "jest": "^27.4.5",
+    "nodemon": "^2.0.15",
+    "supertest": "^6.1.6"
 ```
