@@ -46,7 +46,7 @@
               "msg": "Successfull"
             },
             "schema": {
-              "$ref": "#/definitions/Record"
+              "$ref": "#/definitions/Successful"
             }
           },
           "400": {
@@ -74,6 +74,51 @@
 
     "definitions": {
       "Successful": {
+          "type": "object",
+          "properties": {
+                "msg": {
+                  "type": "string",
+                  "example":  "Success"
+                  },
+                  "code": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "records": {
+                    "type": "array",
+                    "example":[
+                          {
+                              "key": "ibfRLaFT",
+                              "value": "AlpgKxsdliUG",
+                              "createdAt": "2016-12-25T16:43:27.909Z",
+                              "totalCount": 2892
+                          },
+                          {
+                              "key": "pxClAvll",
+                              "value": "pxWfhQUtqkvS",
+                              "createdAt": "2016-12-19T10:00:40.050Z",
+                              "totalCount": 2772
+                          }
+                      ]
+                  
+                  }
+          }
+      },
+    "BadRequestError as minCount is larger then maxCount": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "object",
+          "properties": {
+            "msg": {
+              "type": "string",
+              "example":  "endDate\" must be greater than \"ref:startDate"
+              }
+            }
+          }
+        }
+      },
+      "Record": {
         "type": "object",
         "properties": {
           "startDate": {
@@ -93,69 +138,9 @@
             "example": 3000
           }
         }
-      },
-    "BadRequestError as minCount is larger then maxCount": {
-      "type": "object",
-      "properties": {
-        "startDate": {
-          "type": "string",
-          "example": "2016-01-26"
-        },
-        "endDate": {
-          "type": "string",
-          "example": "2018-02-02"
-        },
-        "minCount": {
-          "type": "integer",
-          "example": 3700
-        },
-        "maxCount": {
-          "type": "integer",
-          "example": 1000
-        }
-      }
-    },
-    "BadRequestError#2 as startDate is later then endDate": {
-      "type": "object",
-      "properties": {
-        "startDate": {
-          "type": "string",
-          "example": "2022-01-26"
-        },
-        "endDate": {
-          "type": "string",
-          "example": "2018-02-02"
-        },
-        "minCount": {
-          "type": "integer",
-          "example": 2700
-        },
-        "maxCount": {
-          "type": "integer",
-          "example": 3000
-        }
-      }
-    },
-    "Record": {
-      "type": "object",
-      "properties": {
-        "startDate": {
-          "type": "string",
-          "example": "2016-01-26"
-        },
-        "endDate": {
-          "type": "string",
-          "example": "2018-02-02"
-        },
-        "minCount": {
-          "type": "integer",
-          "example": 2700
-        },
-        "maxCount": {
-          "type": "integer",
-          "example": 3000
-        }
       }
     }
+    
   }
-}
+
+
