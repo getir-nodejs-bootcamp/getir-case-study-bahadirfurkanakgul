@@ -82,10 +82,10 @@ Response Payload
     "morgan": "^1.10.0",
     "rotating-file-stream": "^3.0.2",
     "swagger-ui-express": "^4.3.0"
-  },
-  "devDependencies": {
+```
+## DevDependencies
+```
     "jest": "^27.4.5",
     "nodemon": "^2.0.15",
     "supertest": "^6.1.6"
-  }
 ```
