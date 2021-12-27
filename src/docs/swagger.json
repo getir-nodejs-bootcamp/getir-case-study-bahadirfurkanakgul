@@ -3,15 +3,19 @@
   "info": {
     "version": "1.0.0",
     "title": " Bahadır Furkan Akgül - Getir Case",
-    "description": "Fetch records from the database",
+    "description": "A graduation project from the Getir Node.js Bootcamp",
     "license": {
       "name": "MIT",
-      "url": "https://opensource.org/licenses/MIT"
+      "url": "https://opensource.org/licenses/MIT",
+    "contact": {
+      "name": "Bahadır Furkan Akgül",
+      "email": "akgl.bahadr@gmail.com"
+      }
     }
   },
   "tags": [
     {
-      "name": "Bahadır Furkan Akgül",
+      "name": "Records",
       "description": "Fetch records from the database"
     }
   ],
@@ -52,7 +56,7 @@
               "msg": "Bad Request"
             },
             "schema": {
-              "$ref": "#/definitions/BadRequestError"
+              "$ref": "#/definitions/BadRequestError as minCount is larger then maxCount"
             }
           },
           "404": {
@@ -60,9 +64,6 @@
             "examples": {
               "code": 404,
               "msg": "Not Found"
-            },
-            "schema": {
-              "$ref": "#/definitions/NotFoundError"
             }
           }
         }
@@ -70,61 +71,68 @@
     }
   },
 
-  "definitions": {
-    "NotFoundError": {
-      "type": "object",
-      "properties": {
-        "error": {
-          "type": "object",
-          "properties": {
-            "message": {
-              "type": "string",
-              "example": "The requested resource is not found."
-            }
-          }
-        }
-      }
-    },
+
     "definitions": {
       "Successful": {
         "type": "object",
         "properties": {
-          "error": {
-            "type": "object",
-            "properties": {
-              "message": {
-                "type": "string",
-                "example": "Successful"
-              }
-            }
+          "startDate": {
+            "type": "string",
+            "example": "2016-01-26"
+          },
+          "endDate": {
+            "type": "string",
+            "example": "2018-02-02"
+          },
+          "minCount": {
+            "type": "integer",
+            "example": 2700
+          },
+          "maxCount": {
+            "type": "integer",
+            "example": 3000
           }
         }
       },
-    "BadRequestError": {
+    "BadRequestError as minCount is larger then maxCount": {
       "type": "object",
       "properties": {
-        "error": {
-          "type": "object",
-          "properties": {
-            "message": {
-              "type": "string",
-              "example": "The requested resource is not found."
-            }
-          }
+        "startDate": {
+          "type": "string",
+          "example": "2016-01-26"
+        },
+        "endDate": {
+          "type": "string",
+          "example": "2018-02-02"
+        },
+        "minCount": {
+          "type": "integer",
+          "example": 3700
+        },
+        "maxCount": {
+          "type": "integer",
+          "example": 1000
         }
       }
     },
-    "NotFoundError": {
+    "BadRequestError#2 as startDate is later then endDate": {
       "type": "object",
       "properties": {
-        "error": {
-          "type": "object",
-          "properties": {
-            "message": {
-              "type": "string",
-              "example": "The requested resource is not found."
-            }
-          }
+        "startDate": {
+          "type": "string",
+          "example": "2022-01-26"
+        },
+        "endDate": {
+          "type": "string",
+          "example": "2018-02-02"
+        },
+        "minCount": {
+          "type": "integer",
+          "example": 2700
+        },
+        "maxCount": {
+          "type": "integer",
+          "example": 3000
         }
       }
     },
@@ -150,5 +158,4 @@
       }
     }
   }
-}
 }
