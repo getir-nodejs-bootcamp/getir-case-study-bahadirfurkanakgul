@@ -4,9 +4,12 @@ Creating a RESTful API with a single endpoint that fetches the data in the provi
 
 ## Heroku - Deployment
 The project is on live.
- 
-Ready for deployment
-//deployment link will be here after the auth is given by organisation
+
+https://bahadirfurkanakgul-getir-case.herokuapp.com/
+
+## For Swagger Documentation 
+
+https://bahadirfurkanakgul-getir-case.herokuapp.com/docs
 
 ## Installation
 1. Clone the repo 
@@ -30,13 +33,11 @@ Run the command to start the app with nodemon
    ```
 Run the command for unit and integration tests
    ```
-   jest
+   npm run test
    ```
 
 ## Endpoints
 `POST /records`
-
-Fetches records from database without filter.
 
 Request Payload
 ```
@@ -47,7 +48,6 @@ Sample request: {
   "maxCount": 3000
  } 
  ``` 
- 
 Response Payload 
 ```
 {
