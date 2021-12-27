@@ -25,13 +25,13 @@
     "/records": {
       "post": {
         "tags": ["Records"],
-        "summary": "Fetch records from the database",
+        "summary": "Fetch records from the database between dates and counts",
         "produces": ["application/json"],
         "parameters": [
           {
             "name": "body",
             "in": "body",
-            "description": "fetch data",
+            "description": "Records",
             "required": true,
             "schema": {
               "$ref": "#/definitions/Record"
@@ -56,7 +56,7 @@
               "msg": "Bad Request"
             },
             "schema": {
-              "$ref": "#/definitions/BadRequestError as minCount is larger then maxCount"
+              "$ref": "#/definitions/BadRequestError"
             }
           },
           "404": {
@@ -104,7 +104,7 @@
                   }
           }
       },
-    "BadRequestError as minCount is larger then maxCount": {
+    "BadRequestError": {
       "type": "object",
       "properties": {
         "error": {
