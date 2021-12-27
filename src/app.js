@@ -58,6 +58,7 @@ app.listen(process.env.APP_PORT || 3000, () => {
   });
   app.use(errorHandler);
 });
+
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // if the Promise is rejected this will catch it
