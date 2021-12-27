@@ -51,13 +51,20 @@ Response Payload
 ```
 {
     "code": 0,
-    "msg": "success",
+    "msg": "Success",
     "records": [
         {
-            "key": "TAKwGc6Jr4i8Z487",
-            "createdAt": "2017-01-28T01:22:14.398Z",
-            "totalCount": 2800
+            "key": "ibfRLaFT",
+            "value": "AlpgKxsdliUG",
+            "createdAt": "2016-12-25T16:43:27.909Z",
+            "totalCount": 2892
+        },
+        {
+            "key": "pxClAvll",
+            "value": "pxWfhQUtqkvS",
+            "createdAt": "2016-12-19T10:00:40.050Z",
+            "totalCount": 2772
         }
-     ]
+    ]
 }
 ```
