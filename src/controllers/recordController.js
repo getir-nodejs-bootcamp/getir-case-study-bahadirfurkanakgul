@@ -3,6 +3,7 @@ const ApiError = require("../errors/ApiError");
 const recordService = require("../services/recordService");
 const httpStatusCodes = require("../utils/httpStatusCodes");
 
+//Filtering request body
 const getRecords = async (req, res, next) => {
   const filter = {
     startDate: req.body.startDate,

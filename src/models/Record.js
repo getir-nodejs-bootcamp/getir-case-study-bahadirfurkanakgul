@@ -27,7 +27,7 @@ const recordSchema = new Schema(
 );
 
 /**
- * @typedef Record
+ * @typedef Record // definition of record
  */
 const Record = mongoose.model('Record', recordSchema);
 
