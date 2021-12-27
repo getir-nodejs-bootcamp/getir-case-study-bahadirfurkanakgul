@@ -47,9 +47,9 @@ app.use(express.json());
 // parse urlencoded request body
 app.use(express.urlencoded({ extended: true }));
 
-app.listen(process.env.APP_PORT || 3000, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log(
-    `Application is running on port => ${process.env.APP_PORT || 3000}`
+    `Application is running on port => ${process.env.PORT || 3000}`
   );
   app.use("/records", routes);
   app.use((req, res, next) => {
