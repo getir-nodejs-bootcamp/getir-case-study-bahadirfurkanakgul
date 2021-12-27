@@ -2,8 +2,8 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "",
-    "description": "",
+    "title": " Bahadır Furkan Akgül - Getir Case",
+    "description": "Fetch records from the database",
     "license": {
       "name": "MIT",
       "url": "https://opensource.org/licenses/MIT"
@@ -11,7 +11,7 @@
   },
   "tags": [
     {
-      "name": "Records",
+      "name": "Bahadır Furkan Akgül",
       "description": "Fetch records from the database"
     }
   ],
@@ -37,6 +37,10 @@
         "responses": {
           "200": {
             "description": "Successful",
+            "examples": {
+              "code": 200,
+              "msg": "Successfull"
+            },
             "schema": {
               "$ref": "#/definitions/Record"
             }
@@ -46,10 +50,17 @@
             "examples": {
               "code": 400,
               "msg": "Bad Request"
+            },
+            "schema": {
+              "$ref": "#/definitions/BadRequestError"
             }
           },
           "404": {
             "description": "Not Found",
+            "examples": {
+              "code": 404,
+              "msg": "Not Found"
+            },
             "schema": {
               "$ref": "#/definitions/NotFoundError"
             }
@@ -60,6 +71,49 @@
   },
 
   "definitions": {
+    "NotFoundError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "example": "The requested resource is not found."
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "Successful": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "object",
+            "properties": {
+              "message": {
+                "type": "string",
+                "example": "Successful"
+              }
+            }
+          }
+        }
+      },
+    "BadRequestError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "example": "The requested resource is not found."
+            }
+          }
+        }
+      }
+    },
     "NotFoundError": {
       "type": "object",
       "properties": {
@@ -96,4 +150,5 @@
       }
     }
   }
+}
 }
