@@ -3,7 +3,7 @@
 Creating a RESTful API with a single endpoint that fetches the data in the provided MongoDB collection and return the results in the requested format.
 
 ## Heroku - Deployment
-The project is on live.
+The project is live.
 
 https://bahadirfurkanakgul-getir-case.herokuapp.com/
 
